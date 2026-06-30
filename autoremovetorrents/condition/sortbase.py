@@ -12,6 +12,8 @@ class ConditionWithSort(Condition):
         handlers = {
             'remove-old-seeds': {'key':lambda torrent: torrent.create_time, 'reverse':False},
             'remove-new-seeds': {'key':lambda torrent: torrent.create_time, 'reverse':True},
+            'remove-long-seeding-seeds': {'key':lambda torrent: torrent.seeding_time, 'reverse':True},
+            'remove-short-seeding-seeds': {'key':lambda torrent: torrent.seeding_time, 'reverse':False},
             'remove-big-seeds': {'key':lambda torrent: torrent.size, 'reverse':True},
             'remove-small-seeds': {'key':lambda torrent: torrent.size, 'reverse':False},
             # For remove-active-seeds and remove-inactive-seeds,
